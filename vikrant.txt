@@ -1,0 +1,137 @@
+
+SQL*Plus: Release 10.2.0.1.0 - Production on Wed Oct 5 11:41:52 2016
+
+Copyright (c) 1982, 2005, Oracle.  All rights reserved.
+
+SQL> connect
+Enter user-name: system
+Enter password:
+Connected.
+SQL> create table stud6(sid varchar(10),sname char(10),sgender char(10),scity ch
+ar(10),sage number(20));
+
+Table created.
+
+SQL> desc stud6;
+ Name                                      Null?    Type
+ ----------------------------------------- -------- ----------------------------
+
+ SID                                                VARCHAR2(10)
+ SNAME                                              CHAR(10)
+ SGENDER                                            CHAR(10)
+ SCITY                                              CHAR(10)
+ SAGE                                               NUMBER(20)
+
+SQL> create table course(cid varchar(10),cname char(10),cduration varchar(10),cf
+ees number(20));
+
+Table created.
+SQL> desc course;
+ Name                                      Null?    Type
+ ----------------------------------------- -------- ----------------------------
+
+ CID                                                VARCHAR2(10)
+ CNAME                                              CHAR(10)
+ CDURATION                                          VARCHAR2(10)
+ CFEES                                              NUMBER(20)
+
+SQL> create table enroll(sid varchar(10),cid varchar(10),dob date,bal_fees numbe
+r(10));
+
+Table created.
+
+
+SQL> desc enroll;
+ Name                                      Null?    Type
+ ----------------------------------------- -------- ----------------------------
+
+ SID                                                VARCHAR2(10)
+ CID                                                VARCHAR2(10)
+ DOB                                                DATE
+ BAL_FEES                                           NUMBER(10)
+
+
+SQL> insert into stud6 values('b09','vikrant','male','panvel',19);
+
+1 row created.
+
+
+SQL> insert into stud6 values('b11','yogesh','male','vashi',19);
+
+1 row created.
+
+SQL> insert into stud6 values('b17','vijay','male','vashi',20);
+
+1 row created.
+
+SQL> select * from stud6;
+
+SID        SNAME      SGENDER    SCITY            SAGE
+---------- ---------- ---------- ---------- ----------
+b09        vikrant    male       panvel             19
+b11        yogesh     male       vashi              19
+b17        vijay      male       vashi              20
+
+SQL> insert into course values('c01','vap','6month','7000');
+
+1 row created.
+
+SQL> insert into course values('c01','msc_it','2month','3000');
+
+1 row created.
+
+
+SQL> insert into course values('c09','electrical','1year','12000');
+
+1 row created.
+
+SQL> select * from course;
+
+CID        CNAME      CDURATION       CFEES
+---------- ---------- ---------- ----------
+c01        vap        6month           7000
+c01        msc_it     2month           3000
+c09        electrical 1year           12000
+
+SQL> insert into enroll values('b09','c01','26dec1997','5000');
+
+1 row created.
+
+SQL> insert into enroll values('b11','c01','13may1998','2000');
+
+1 row created.
+
+SQL> insert into enroll values('b17','c09','12june1998','7000');
+
+1 row created.
+
+SQL> select * from enroll;
+
+SID        CID        DOB         BAL_FEES
+---------- ---------- --------- ----------
+b09        c01        26-DEC-97       5000
+b11        c01        13-MAY-98       2000
+b17        c09        12-JUN-98       7000
+
+SQL> select distinct scity from stud6;
+
+SCITY
+----------
+panvel
+vashi
+
+
+SQL> select distinct bal_fees from enroll where bal_fees>=5000;
+
+  BAL_FEES
+----------
+      5000
+      7000
+
+SQL> select distinct bal_fees from cfess where bal_fees>=5000;
+
+
+
+
+
+
